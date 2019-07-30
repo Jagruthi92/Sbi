@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Suite]" parallel="tests">
+  <parameter name="browsser" value="firefox"/>
+  <test name="Test_chrome">
+    <parameter name="browsser" value="chrome"/>
+    <packages>
+      <package name="scripts"/>
+    </packages>
+    <classes>
+      <class name="scripts.AddToCart"/>
+      <class name="scripts.InvalidUnPwd"/>
+      <class name="scripts.ValidUnPwd"/>
+    </classes>
+  </test> <!-- Test_chrome -->
+  <test name="Test_firefox">
+    <parameter name="browsser" value="firefox"/>
+    <packages>
+      <package name="scripts"/>
+    </packages>
+    <classes>
+      <class name="scripts.AddToCart"/>
+      <class name="scripts.InvalidUnPwd"/>
+      <class name="scripts.ValidUnPwd"/>
+    </classes>
+  </test> <!-- Test_firefox -->
+  <test name="Test_firefox(failed)" parallel="tests">
+    <parameter name="browsser" value="firefox"/>
+    <classes>
+      <class name="scripts.AddToCart">
+        <methods>
+          <include name="testAddToCart"/>
+        </methods>
+      </class> <!-- scripts.AddToCart -->
+      <class name="scripts.InvalidUnPwd">
+        <methods>
+          <include name="TestInvalidUnPwd"/>
+        </methods>
+      </class> <!-- scripts.InvalidUnPwd -->
+      <class name="scripts.ValidUnPwd">
+        <methods>
+          <include name="testValidUnPwd"/>
+        </methods>
+      </class> <!-- scripts.ValidUnPwd -->
+    </classes>
+  </test> <!-- Test_firefox(failed) -->
+  <test name="Test_chrome(failed)" parallel="tests">
+    <parameter name="browsser" value="chrome"/>
+    <classes>
+      <class name="scripts.AddToCart">
+        <methods>
+          <include name="testAddToCart"/>
+        </methods>
+      </class> <!-- scripts.AddToCart -->
+      <class name="scripts.InvalidUnPwd">
+        <methods>
+          <include name="TestInvalidUnPwd"/>
+        </methods>
+      </class> <!-- scripts.InvalidUnPwd -->
+      <class name="scripts.ValidUnPwd">
+        <methods>
+          <include name="testValidUnPwd"/>
+        </methods>
+      </class> <!-- scripts.ValidUnPwd -->
+    </classes>
+  </test> <!-- Test_chrome(failed) -->
+</suite> <!-- Failed suite [Suite] -->
